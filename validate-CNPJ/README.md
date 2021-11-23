@@ -1,4 +1,4 @@
-# Validate CNPJ
+# Validator of CNPJ
 
 O pacote foi desenvolvido com o objetivo de realizar a validação de CNPJ.
 
