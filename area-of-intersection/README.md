@@ -42,10 +42,23 @@ sendo solicitado os dados novamente.
 
 ### Calculando área
 
+Quando o programa enviar a mensagem: "Which is the area of intersection ?"
+Significa que ele está pronto para receber os retangulos a serem comparados.
+
+Para verificar área da intersecção, inserira o número de 2 retângulos separados por espaço.
+Para sair do programa use o comando: "-1"
+
+> Se for informado uma númeração inexistente ou em outro formato,
+a mensagem será apresentada: "The input format is invalid. Re-enter in a valid format.".
+
 ## Saída esperada
 
-
+Logo após inserir as figuras a serem comparadas, já será informado
+o valor da área correpondente.
 
 ```bash
-...
+Which is the area of intersection ? 1 2
+The area is:  15
 ```
+
+> O valor 0 pode significar que não existe intersecção entre os retângulos solicitados.

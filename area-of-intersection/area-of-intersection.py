@@ -1,5 +1,34 @@
+def area_intersection(rectangles, A, B, type):
+    '''Calcs the intersection area'''
+    area = 0
+    maiorXA, menorXA, maiorYA, menorYA = max(rectangles[A][0],rectangles[A][2]), \
+        min(rectangles[A][0],rectangles[A][2]), max(rectangles[A][1],rectangles[A][3]), \
+        min(rectangles[A][1],rectangles[A][3])
+    maiorXB, menorXB, maiorYB, menorYB = max(rectangles[B][0],rectangles[B][2]), \
+        min(rectangles[B][0],rectangles[B][2]), max(rectangles[B][1],rectangles[B][3]), \
+        min(rectangles[B][1],rectangles[B][3])
+    # Defines X and Y
+    if type == 'A':
+        X = maiorXB - menorXA
+        Y = maiorYA - menorYB
+    elif type == 'B':
+        X = maiorXA - menorXB
+        Y = maiorYA - menorYB
+    elif type == 'C':
+        X = maiorXB - menorXA
+        Y = maiorYB - menorYA
+    elif type == 'D':
+        X = maiorXA - menorXB
+        Y = maiorYB - menorYA
+    # Its haven't intersection, return 0
+    else:
+        return area
+    # Calcs the area and returns it
+    area = (X+1) * (Y+1)
+    return area
+
 def intersects(rectangles, A, B):
-    """Checks if rectangle A and B have interction"""
+    """Check the type of intersection between A and B"""
     maiorXA, menorXA, maiorYA, menorYA = max(rectangles[A][0],rectangles[A][2]), \
         min(rectangles[A][0],rectangles[A][2]), max(rectangles[A][1],rectangles[A][3]), \
         min(rectangles[A][1],rectangles[A][3])
@@ -8,19 +37,19 @@ def intersects(rectangles, A, B):
         min(rectangles[B][1],rectangles[B][3])
     # Case A -> menorXA <= maiorXB <= maiorXA and menorYA <= menorYB <= maiorYA
     if menorXA <= maiorXB and maiorXB <= maiorXA and menorYA <= menorYB and menorYB <= maiorYA:
-        return True
+        return 'A'
     # Case B -> menorXA <= menorXB <= maiorXA and menorYA <= menorYB <= maiorYA
     elif menorXA <= menorXB and menorXB <= maiorXA and menorYA <= menorYB and menorYB <= maiorYA:
-        return True
+        return 'B'
     # Case C -> menorXA <= maiorXB <= maiorXA and menorYA <= maiorYB <= maiorYA
     elif menorXA <= maiorXB and maiorXB <= maiorXA and menorYA <= maiorYB and maiorYB <= maiorYA:
-        return True
+        return 'C'
     # Case D -> menorXA <= menorXB <= maiorXA and menorYA <= maiorYB <= maiorYA
     elif menorXA <= menorXB and menorXB <= maiorXA and menorYA <= maiorYB and maiorYB <= maiorYA:
-        return True
+        return 'D'
     # without intersection
     else:
-        return False
+        return 'X'
 
 def main():
     print("*******************************************************")
@@ -48,8 +77,8 @@ def main():
     if n < 2:
         print("There cannot be an intersection with less than 2 rectangles")
         exit()
-    # Request intersection
-    r = input("The have rectangles intersect ? ")
+    # Request retangles for calcs of area
+    r = input("Which is the area of intersection ? ")
     while r != '-1':
         r = r.split()
         # Checks if format is valid
@@ -57,11 +86,12 @@ def main():
             int(r[0]) <= n and int(r[0]) > 0 and int(r[1]) <= n and int(r[1]) > 0:
             # Convert for int and calls the function
             A, B = int(r[0]), int(r[1])
-            result = intersects(rectangles,A-1, B-1)
-            print("The rectangle", str(A), "have intersection with the", str(B) + "?", result)
+            option = intersects(rectangles,A-1, B-1)
+            result = area_intersection(rectangles, A-1, B-1, option)
+            print("The area is: ", result)
         else:
             print("The input format is invalid. Re-enter in a valid format.")
-        r = input("The have rectangles intersect ? ")
+        r = input("Which is the area of intersection ? ")
     print("*******************************************************")
 
 main()
