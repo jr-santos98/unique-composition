@@ -2,6 +2,8 @@
 
 O pacote foi desenvolvido com o objetivo de realizar a validação de CNPJ.
 
+![Screenshot](Screenshot.png)
+
 ## Requisitos
 
 É requisitado a instalação do(s) seguinte(s) componente(s):

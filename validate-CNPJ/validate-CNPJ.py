@@ -27,6 +27,8 @@ def isValid(cnpj):
     
 
 def main():
+    print("*************************************")
+    print("Insert the CNPJ: ")
     cnpj = input().replace('.', '').replace('/', '').replace('-', '')
     # Check if the cnpj is in a valid format
     if cnpj.isdigit() and len(cnpj) == 14:
@@ -36,5 +38,6 @@ def main():
             print('CNPJ is invalid!')
     else:
         print("The format provided is invalid.")
+    print("*************************************")
 
 main()
