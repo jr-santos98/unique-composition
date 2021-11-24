@@ -15,7 +15,9 @@ O pacote foi desenvolvido com o objetivo de realizar a validação de CNPJ.
 Utilizar o terminar ou qualquer interpretador de python 3.
 Exemplo do comando para o terminal do Ubuntu:
 
-´python3 validate-CNPJ.py´.
+```bash
+python3 validate-CNPJ.py
+```
 
 > Atualizar o comando de acordo com o interpretador ou sistema operacional utilizado.
 
