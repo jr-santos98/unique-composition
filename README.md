@@ -1,4 +1,4 @@
-# unique-composition
+# Unique compositions
 Conjuntos de softwares de autoria própria, afim de servir como portfólio e referência para outros projetos.
 
 Cada um dos pacotes presentes nesse repositório, contêm documentação e README próprios.
