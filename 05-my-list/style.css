@@ -1,0 +1,45 @@
+body {
+  background: url('images/background.jpg'), #C3D2D7;
+	font-family: "Open Sans", sans-serif;
+	text-align: center;
+	line-height: 1.5;
+  font-size: 0.875rem;
+	vertical-align: middle;
+}
+
+.footer {
+	text-align:center;
+	font-size: 10pt;
+	position:absolute;
+	bottom:10px;
+	background: Gainsboro;
+	width:99%;
+	height: 5%;
+}
+
+img {
+	vertical-align: -80%;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: 0.1rem;
+  text-transform: capitalize;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+  font-family: "Roboto", sans-serif;
+}
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+h4 {
+  font-size: 0.875rem;
+}
