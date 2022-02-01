@@ -1,0 +1,11 @@
+body {
+    background-image: url("background.jpg");
+}
+
+h1 {
+    text-align: center;
+}
+
+.container {
+    text-align: center;
+}
