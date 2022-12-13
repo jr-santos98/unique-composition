@@ -1,0 +1,26 @@
+---------- Client: 1 ----------
+IP: 127.0.0.1
+Porta: 50522
+Connection Time: Mon Dec 12 21:09:02 2022 from Client 1
+--------------------
+Client: 1
+Ola
+
+Client: 1
+Seja bem vindo!
+
+Client: 1
+Tudo começou aqui!
+
+Client: 1
+O que será que irá se tornar mais para frente ?
+
+Client: 1
+Nós proximos commits descobriremos.
+
+Client: 1
+:)
+
+Client: 1
+exit
+
