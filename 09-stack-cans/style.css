@@ -1,0 +1,58 @@
+body {
+	background-color: #C3D2D7;
+}
+
+.button {
+    background-color: white;
+    color: black;
+    border: 2px solid #e7e7e7;
+    border-radius: 12px;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 16px 0px;
+    cursor: pointer;
+  }
+
+.pyramid {
+    text-align: center;
+}
+
+.row {
+    margin-bottom: 10px;
+}
+
+.can {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    /* background-color: gray; */
+    background-image: url('media/can.webp');
+    background-size: cover; /* ajusta o tamanho da imagem para preencher o elemento */
+    margin: 0 5px;
+}
+
+.empty {
+    /* background-color: transparent; */
+    opacity: 0; /* torna o elemento completamente transparente */
+}
+
+.goal {
+    background-color: red;
+}
+
+.footer {
+	text-align:center;
+	font-size: 10pt;
+	position:absolute;
+	bottom:10px;
+	background: Gainsboro;
+	width:99%;
+	height: 5%;
+}
+
+.git-logo {
+    vertical-align: -80%;
+}
