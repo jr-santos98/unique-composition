@@ -51,6 +51,11 @@ body {
 	height: 5%;
 }
 
+p {
+	text-align:left;
+	font-size: 12pt;
+}
+
 .git-logo {
     vertical-align: -80%;
 }

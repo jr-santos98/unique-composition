@@ -52,9 +52,15 @@ function removeCan(id) {
                 document.getElementById('moves').innerText = moves;
                 isFirstMove = false;
                 if (id === 16 - goalCan) {
-                    document.getElementById('result').innerText = "Parabéns, você ganhou!";
+                    if (moves === minMoves)
+                        document.getElementById('result').innerText = "Parabéns, você ganhou!";
+                    else {
+                        document.getElementById('result').innerText = "Puts, você perdeu!";
+                        document.getElementById('result').innerText += "\nMas não desanime, você pode tentar novamente!";
+                    }
                     start = false;
-                } else document.getElementById('result').innerText = "";
+                } else 
+                    document.getElementById('result').innerText = "";
             } else {
                 document.getElementById('result').innerText = "Você só pode remover uma lata se não houver nenhuma apoiada sobre ela.";
             }
