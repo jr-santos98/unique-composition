@@ -54,7 +54,7 @@ function removeCan(id) {
                 if (id === 16 - goalCan) {
                     document.getElementById('result').innerText = "Parabéns, você ganhou!";
                     start = false;
-                }
+                } else document.getElementById('result').innerText = "";
             } else {
                 document.getElementById('result').innerText = "Você só pode remover uma lata se não houver nenhuma apoiada sobre ela.";
             }
