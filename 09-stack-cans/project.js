@@ -3,10 +3,27 @@ let minMoves;
 let moves = 0;
 let isFirstMove = true;
 let start = false;
+let min = [5, 8, 9, 8, 5];
+let dist = [  // id
+    [ 1, -1], //  2
+    [ 1, -1], //  3
+    [ 2, -1], //  4
+    [ 2,  3], //  5
+    [ 3, -1], //  6
+    [ 4, -1], //  7
+    [ 4,  5], //  8
+    [ 5,  6], //  9
+    [ 6, -1], // 10
+    [ 7, -1], // 11
+    [ 7,  8], // 12
+    [ 8,  9], // 13
+    [ 9, 10], // 14
+    [10, -1]  // 15
+];
 
+// Começa o jogo
 function startGame() {
     goalCan = Math.floor(Math.random() * 5) + 1;
-    console.log(goalCan);
     minMoves = calculateMinMoves(goalCan);
     document.getElementById('minMoves').innerText = minMoves;
     moves = 0;
@@ -19,14 +36,17 @@ function startGame() {
 }
 
 function calculateMinMoves(goal) {
-    return goal * 2 - 1;
+    return min[goal-1];
 }
 
+// Controla o movimento da lata
 function removeCan(id) {
     if (start) {
         let can = document.getElementById('can' + id);
         if (!can.classList.contains('empty')) {
-            if ((isFirstMove && id === 1) || canAboveIsEmpty(id)) {
+            if (isFirstMove && id !== 1) {
+                document.getElementById('result').innerText = "Você só pode remover a primeira lata na primeira jogada.";
+            } else if (checkIsEmpty(id)) {
                 can.classList.add('empty');
                 moves++;
                 document.getElementById('moves').innerText = moves;
@@ -35,8 +55,6 @@ function removeCan(id) {
                     document.getElementById('result').innerText = "Parabéns, você ganhou!";
                     start = false;
                 }
-            } else if (isFirstMove && id !== 1) {
-                document.getElementById('result').innerText = "Você só pode remover a primeira lata na primeira jogada.";
             } else {
                 document.getElementById('result').innerText = "Você só pode remover uma lata se não houver nenhuma apoiada sobre ela.";
             }
@@ -44,19 +62,31 @@ function removeCan(id) {
     }
 }
 
-function canAboveIsEmpty(id) {
-    let row = Math.ceil(id / 5);
-    let positionInRow = id % 5;
-    if (positionInRow === 0) positionInRow = 5;
-    for (let i = row - 1; i >= 1; i--) {
-        let canAbove = document.getElementById('can' + ((i - 1) * 5 + positionInRow));
-        if (!canAbove.classList.contains('empty')) {
-            return false;
-        }
+// Verifica se tem lata em cima (recursivo)
+function checkIsEmpty_rec(id) {
+    if (id <= 1) return true;
+    let canAbove = document.getElementById('can' + id);
+    if (!canAbove.classList.contains('empty')) {
+        return false;
     }
-    return true;
+
+    let above1 = checkIsEmpty_rec(dist[id-2][0]);
+    let above2 = checkIsEmpty_rec(dist[id-2][1]);
+
+    return above1 && above2;
 }
 
+// Verifica se tem lata em cima
+function checkIsEmpty(id) {
+    if (id == 1) return true;
+
+    let above1 = checkIsEmpty_rec(dist[id-2][0]);
+    let above2 = checkIsEmpty_rec(dist[id-2][1]);
+
+    return above1 && above2;
+}
+
+// Restaura valores para o inicial
 function resetCans() {
     for (let i = 1; i <= 15; i++) {
         document.getElementById('can' + i).classList.remove('empty');
